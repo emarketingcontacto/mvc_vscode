@@ -1,0 +1,39 @@
+@model List<mvcEnterprise.Models.EmployeeCategoryModel> 
+
+<div class="row">
+  <div class="col-md-12">
+    <a asp-action="Create" asp-controller="Employees" class="btn btn-success">Create</a>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><img src="" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt=""></th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name </th>
+      <th scope="col">CatId</th>
+       <th scope="col">CatName</th>
+      <th scope="col"> Manage </th>
+      
+
+     </tr>
+  </thead>
+  <tbody>
+	@foreach(var item in Model )
+	{
+		<tr>
+			<th>@item.empId</th>
+			<td>@item.empName</td>
+			<td>@item.empLName</td>
+	        <td>@item.catId</td>
+            <td>@item.catName</td>
+      <td>
+          <a asp-action="Details" asp-controller="Employees" asp-route-id="@item.empId" class="btn-sm btn-primary ">Details</a>
+          <a asp-action="Edit" asp-controller="Employees" asp-controller="Employees" asp-route-id="@item.empId" class="btn-sm btn-warning">Edit</a>
+          <a asp-action="Delete" asp-controller="Employees" asp-controller="Employees" asp-route-id="@item.empId" class="btn-sm btn-danger">Delete</a>
+        </td>
+		</tr>
+	}
+  </tbody>
+</table>
